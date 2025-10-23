@@ -16,14 +16,17 @@ Router.map(function() {
 });
 ```
 
-```handlebars {data-filename=app/templates/photos.hbs}
-<ul>
-  {{#each this.photos as |p|}}
-    <li>
-      <LinkTo @route="photos.edit" @model={{p}}>{{p.title}}</LinkTo>
-    </li>
-  {{/each}}
-</ul>
+```handlebars {data-filename=app/templates/photos.gjs}
+import { LinkTo } from '@ember/routing';
+<template>
+  <ul>
+    {{#each this.photos as |p|}}
+      <li>
+        <LinkTo @route="photos.edit" @model={{p}}>{{p.title}}</LinkTo>
+      </li>
+    {{/each}}
+  </ul>
+</template>
 ```
 
 The `@route` argument is the name of the route to link to, and the `@model`
